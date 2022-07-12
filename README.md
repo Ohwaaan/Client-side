@@ -16,4 +16,3 @@ This is the client repository for assignment 5 - Crud Application
 3.	Go into the "Client-side" folder, enter the command to install dependencies: `npm install` 
 4.	Start the client application by entering the command: `npm start` 
 5.	After the client application is successfully started, a web browser is automatically opened at the address: `http://localhost:3000` 
-# Client-side
