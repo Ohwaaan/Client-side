@@ -74,11 +74,11 @@ class NewStudentContainer extends Component {
         <Header />
         <NewStudentView 
           handleChange = {this.handleChange} 
-          handleSubmit={this.handleSubmit}      
+          handleSubmit = {this.handleSubmit}      
         />
       </div>          
     );
-  }asdf
+  }
 }
 
 // The following input argument is passed to the "connect" function used by "NewStudentContainer" component to connect to Redux Store.
