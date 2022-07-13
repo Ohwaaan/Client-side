@@ -8,7 +8,7 @@ It constructs a React component to display the new student page.
 /*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
 /*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
 /*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-/*----------------LOOK AT NewStuddentView.js IF SOMETHING DONT WORK----------------*/ 
+/*----------------LOOK AT NewStudentView.js IF SOMETHING DONT WORK----------------*/ 
 
 
 import Button from '@material-ui/core/Button';
@@ -42,7 +42,7 @@ const useStyles = makeStyles( () => ({
 }));
 
 const NewCampusView = (props) => {
-  const {handleChange, handleSubmit } = props;
+  const {handleChange, handleSubmit} = props;
   const classes = useStyles();
 
   // Render a New Campus view with an input form
@@ -60,6 +60,11 @@ const NewCampusView = (props) => {
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
             <input type="text" name="name" onChange ={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Img: </label>
+            <input type="text" name="img" onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 

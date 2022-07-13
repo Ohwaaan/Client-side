@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const StudentView = (props) => {
   const { student, deleteStudent, campus } = props;
-  
+
    //if campus exists, render with campus name
   if (student.campusId != null)
   {
@@ -21,7 +21,7 @@ const StudentView = (props) => {
           <h3>{student.campus.name}</h3>
         </Link>
         <h3>{student.email}</h3>
-        <h3>{student.gpa}</h3>
+        <h3>{student.GPA}</h3>
         <Link to={`/students`}>
           <button onClick={() => deleteStudent(student.id)}>Delete</button>
         </Link>
@@ -37,7 +37,7 @@ const StudentView = (props) => {
         <h1>{student.firstname + " " + student.lastname}</h1>
           <h3>Not enrolled at the moment.</h3>
         <h3>{student.email}</h3>
-        <h3>{student.gpa}</h3>
+        <h3>{student.GPA}</h3>
         <Link to={`/students`}>
           <button onClick={() => deleteStudent(student.id)}>Delete</button>
         </Link>

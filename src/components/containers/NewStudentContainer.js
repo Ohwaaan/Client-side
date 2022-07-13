@@ -20,6 +20,9 @@ class NewStudentContainer extends Component {
     this.state = {
       firstname: "", 
       lastname: "", 
+      email: "",
+      imageURL: "",
+      GPA: "",
       campusId: null, 
       redirect: false, 
       redirectId: null
@@ -40,6 +43,8 @@ class NewStudentContainer extends Component {
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
+        email: this.state.email,
+        GPA: this.state.GPA,
         campusId: this.state.campusId
     };
     
@@ -50,6 +55,9 @@ class NewStudentContainer extends Component {
     this.setState({
       firstname: "", 
       lastname: "", 
+      email: "",
+      imageURL: "",
+      GPA: "",
       campusId: null, 
       redirect: true, 
       redirectId: newStudent.id
@@ -74,7 +82,7 @@ class NewStudentContainer extends Component {
         <Header />
         <NewStudentView 
           handleChange = {this.handleChange} 
-          handleSubmit = {this.handleSubmit}      
+          handleSubmit = {this.handleSubmit}    
         />
       </div>          
     );

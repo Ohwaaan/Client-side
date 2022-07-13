@@ -16,14 +16,21 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { addCampusThunk } from '../../store/thunks'; 
+import { 
+  addCampusThunk,
+  fetchAllCampusesThunk
+  } from '../../store/thunks'; 
+
 import NewCampusView from '../views/NewCampusView';
+import AllCampusesContainer from './AllCampusesContainer';
+import { allCampuses } from '../../store/reducers';
 
 class NewCampusContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
       name:         "", 
+      imageURL:     "",
       address:      "", 
       description:  "",
       campusId:   null, 
@@ -43,29 +50,35 @@ class NewCampusContainer extends Component {
 
     let campus = {
       name:         this.state.name,
+      imageURL:     this.state.imageURL,
       address:      this.state.address,
-      description:  this.state.description
+      description:  this.state.description,
+      campusId:     this.state.campusId
     };
 
+    // Add new campus in back-end database
     let newCampus = await this.props.addCampus(campus);
 
+    // Update state, and trigger redirect to show the new campus
     this.setState({
       name :       "",
+      imageURL:    "",
       address:     "",
       description: "",
-      campusId:   null,
+      campusId:   allCampuses.length+1,
       redirect:   true,
       redirectId: newCampus.id
     });
   }
 
+  // Unmount when the component is being removed from the DOM:
   componentWillUnmount() {
     this.setState({redirect: false, redirectId: null});
   }
 
   render() {
     if(this.state.redirect) {
-      return (<Redirect to={`/campus/${this.state.redirectID}`}/>)
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
 
     return (
