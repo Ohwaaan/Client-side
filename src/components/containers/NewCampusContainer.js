@@ -47,7 +47,7 @@ class NewCampusContainer extends Component {
       description:  this.state.description
     };
 
-    let newCapus = await this.props.addCampus(campus);
+    let newCampus = await this.props.addCampus(campus);
 
     this.setState({
       name :       "",
@@ -55,7 +55,7 @@ class NewCampusContainer extends Component {
       description: "",
       campusId:   null,
       redirect:   true,
-      redirectId: newCapus.id
+      redirectId: newCampus.id
     });
   }
 
