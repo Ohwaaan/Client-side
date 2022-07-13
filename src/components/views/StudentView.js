@@ -7,13 +7,15 @@ It constructs a React component to display the single student view page.
 import { Link } from "react-router-dom";
 
 const StudentView = (props) => {
-  const { student } = props;
+  const { student, campus } = props;
 
-  // const campusExists = () => {
-  //   if (campusId != NULL)
-
-  //    return false
-  // }
+  const campusExists = () => {
+    if (student.campusId != null)
+        <div>
+          <h3>pissloard21</h3>
+        </div>
+      return false
+   }
 
   // Render a single Student view 
   return (
