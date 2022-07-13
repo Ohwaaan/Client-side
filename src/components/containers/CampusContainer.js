@@ -11,7 +11,8 @@ import { connect } from "react-redux";
 import { 
   fetchCampusThunk,
   deleteCampusThunk,
-  deleteStudentThunk
+  deleteStudentThunk,
+  editStudentThunk
 } from "../../store/thunks";
 
 import { CampusView } from "../views";
@@ -32,6 +33,7 @@ class CampusContainer extends Component {
         campus = {this.props.campus} 
         deleteCampus = {this.props.deleteCampus}
         deleteStudent={this.props.deleteStudent}
+        editStudent={this.props.editStudent}
         />
       </div>
     );
@@ -52,7 +54,8 @@ const mapDispatch = (dispatch) => {
   return {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
     deleteCampus: (campusId) => dispatch(deleteCampusThunk(campusId)),
-    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId))
+    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
+    editStudent: (campusId) => dispatch(editStudentThunk(campusId))
   };
 };
 

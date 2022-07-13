@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus, deleteCampus, students, deleteStudent} = props;
+  const {campus, deleteCampus, students, deleteStudent, editStudent} = props;
 
   //TODO: how to add existing student
   // pre-populate campus id for new student
@@ -55,7 +55,7 @@ const CampusView = (props) => {
                 <h2>{name}</h2>
               </Link>
               <Link to={`/campus/${campus.id}`}>
-                  <button onClick={() => deleteStudent(student.id)}>Delete {name}</button>
+                  <button onClick={() => editStudent(student)}>Unenroll {name}</button>
               </Link>             
             </div>
           );

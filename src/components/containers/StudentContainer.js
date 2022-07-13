@@ -11,10 +11,12 @@ import { connect } from "react-redux";
 import { 
   fetchStudentThunk, 
   fetchCampusThunk,
-  deleteStudentThunk
+  deleteStudentThunk,
+  editStudentThunk
 }
 from "../../store/thunks";
 import { StudentView } from "../views";
+import { editStudent } from '../../store/actions/actionCreators';
 
 class StudentContainer extends Component {
   // Get student data from back-end database
@@ -32,6 +34,7 @@ class StudentContainer extends Component {
         student = {this.props.student} 
         campusId ={this.props.campusId}
         deleteStudent={this.props.deleteStudent}
+        editStudent={this.props.editStudent}
         />
       </div>
     );
@@ -51,7 +54,8 @@ const mapDispatch = (dispatch) => {
   return {
     fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
-    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId))
+    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
+    editStudent: (student) => dispatch(editStudentThunk(student))
   };
 };
 
