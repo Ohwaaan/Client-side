@@ -10,9 +10,6 @@ import { Link } from "react-router-dom";
 const CampusView = (props) => {
   const {campus, deleteCampus, students, deleteStudent, editStudent} = props;
 
-  //TODO: how to add existing student
-  // pre-populate campus id for new student
-  // separate add existing / new student?
   
   //if no students for campus, render campus with message that there are no students
   if(!campus.students.length)
@@ -20,9 +17,9 @@ const CampusView = (props) => {
     return (
       <div>
         <img src = {"https://www.dakotacollege.edu/application/files/3815/4834/4222/school.png"} alt ="default campus"/>
-        <h1>{campus.name}</h1>
-        <p>{campus.address}</p>
-        <p>{campus.description}</p>
+        <h1>Campus Name: {campus.name}</h1>
+        <p>Campus Address: {campus.address}</p>
+        <p>Campus Description{campus.description}</p>
         <Link to={`/campuses`}>
           <button onClick={() => deleteCampus(campus.id)}>Delete</button>
           </Link> 
@@ -41,9 +38,9 @@ const CampusView = (props) => {
     return (
       <div>
         <img src = {"https://www.dakotacollege.edu/application/files/3815/4834/4222/school.png"} alt ="default campus"/>
-        <h1>{campus.name}</h1>
-        <p>{campus.address}</p>
-        <p>{campus.description}</p>
+        <h1>Campus Name: {campus.name}</h1>
+        <p>Campus Address: {campus.address}</p>
+        <p>Campus Description{campus.description}</p>
         <Link to={`/campuses`}>
           <button onClick={() => deleteCampus(campus.id)}>Delete</button>
           </Link> 
@@ -52,7 +49,7 @@ const CampusView = (props) => {
           return (
             <div key={student.id}>
               <Link to={`/student/${student.id}`}>
-                <h2>{name}</h2>
+                <h2>Name: {name}</h2>
               </Link>
               <Link to={`/campus/${campus.id}`}>
                   <button onClick={() => editStudent(student)}>Unenroll {name}</button>

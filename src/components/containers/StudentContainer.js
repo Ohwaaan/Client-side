@@ -31,10 +31,10 @@ class StudentContainer extends Component {
       <div>
         <Header />
         <StudentView 
-        student = {this.props.student} 
-        campusId ={this.props.campusId}
-        deleteStudent={this.props.deleteStudent}
-        editStudent={this.props.editStudent}
+        student  = {this.props.student} 
+        campusId = {this.props.campusId}
+        deleteStudent = {this.props.deleteStudent}
+        editStudent = {this.props.editStudent}
         />
       </div>
     );

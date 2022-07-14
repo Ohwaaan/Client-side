@@ -11,7 +11,9 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import NewStudentView from '../views/NewStudentView';
-import { addStudentThunk } from '../../store/thunks';
+import { 
+  addStudentThunk
+ } from '../../store/thunks';
 
 class NewStudentContainer extends Component {
   // Initialize state

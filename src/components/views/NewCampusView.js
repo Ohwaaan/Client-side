@@ -5,12 +5,6 @@ The Views component is responsible for rendering web page with data provided by 
 It constructs a React component to display the new student page.
 ================================================== */
 
-/*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-/*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-/*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-/*----------------LOOK AT NewStudentView.js IF SOMETHING DONT WORK----------------*/ 
-
-
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';

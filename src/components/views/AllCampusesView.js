@@ -29,11 +29,11 @@ const AllCampusesView = (props) => {
         <div key={campus.id}>
           <img src = {"https://www.dakotacollege.edu/application/files/3815/4834/4222/school.png"} alt ="default campus"/>
           <Link to={`/campus/${campus.id}`}>
-            <h2>{campus.name}</h2>
+            <h2>Campus name: {campus.name}</h2>
           </Link>
-          <h4>campus id: {campus.id}</h4>
-          <p>{campus.address}</p>
-          <p>{campus.description}</p>
+          <h4>Campus id: {campus.id}</h4>
+          <p>Campus address: {campus.address}</p>
+          <p>Campus description: {campus.description}</p>
           <button onClick={() => deleteCampus(campus.id)}>Delete</button>
           <hr/>
         </div>

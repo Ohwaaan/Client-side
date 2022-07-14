@@ -3,20 +3,25 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import { 
+  editStudentThunk,
+  fetchStudentThunk 
+} from '../../store/thunks';
 import EditStudentView from '../views/EditStudentView';
-import { editStudentThunk } from '../../store/thunks';
 
 class EditStudentContainer extends Component {
-    // Initialize state
-    constructor(props){
+    
+  // Initialize state
+    constructor(props) {
       super(props);
+
       this.state = {
-        firstname: "", 
-        lastname: "", 
-        email: "",
-        imageURL: "",
-        GPA: "",
-        campusId: null, 
+        firstname: props.firstname, 
+        lastname: props.lastname,
+        email: props.email,
+        imageURL: props.imageURL,
+        GPA: props.GPA,
+        campusId: props.campusId,
         redirect: false, 
         redirectId: null
       };
@@ -41,21 +46,22 @@ class EditStudentContainer extends Component {
         campusId: this.state.campusId
     };
 
-        // Add modified student in back-end database
-        let modifiedStudent = await this.props.editStudent(student);
+    // Add modified student in back-end database
+    let modifiedStudent = await this.props.editStudent(student.id, student);
 
-        // Update state, and trigger redirect to show the new student
-        this.setState({
-          firstname: "", 
-          lastname: "", 
-          email: "",
-          imageURL: "",
-          GPA: "",
-          campusId: null, 
-          redirect: true, 
-          redirectId: modifiedStudent.id
-        });
-      }
+
+    // Update state, and trigger redirect to show the new student
+    this.setState({
+      firstname: "", 
+      lastname: "", 
+      email: "",
+      imageURL: "",
+      GPA: "",
+      campusId: null, 
+      redirect: true, 
+      redirectId: modifiedStudent.id
+    });
+  }
 
       // Unmount when the component is being removed from the DOM:
   componentWillUnmount() {
@@ -76,11 +82,14 @@ render() {
       <EditStudentView 
         handleChange = {this.handleChange} 
         handleSubmit = {this.handleSubmit}    
+        student      = {this.state}
       />
     </div>          
   );
 }
 }
+
+
 
 // The following input argument is passed to the "connect" function used by "EditStudentContainer" component to connect to Redux Store.
 // The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
@@ -88,10 +97,11 @@ render() {
 const mapDispatch = (dispatch) => {
     return({
         editStudent: (student) => dispatch(editStudentThunk(student)),
+        fetchStudent: (studentId) => dispatch(fetchStudentThunk(studentId))
     })
 }
 
 // Export store-connected container by default
 // EditStudentContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
-export default connect(null, mapDispatch)(EditStudentContainer);
+export default connect(mapDispatch)(EditStudentContainer);

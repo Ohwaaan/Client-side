@@ -115,10 +115,6 @@ export const fetchStudentThunk = id => async dispatch => {  // The THUNK
   }
 };
 
-/*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-/*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-/*----------------EVERYTHING BELOW HERE IS MY TEST CODE,MAY OR MAY NOT WORK------------*/ 
-
 export const addCampusThunk = (campus) => async (dispatch) => {
   try {
     let res = await axios.post('api/campuses', campus);
